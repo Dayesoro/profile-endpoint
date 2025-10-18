@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express')
 const app = express()
+const cors = require('cors');
 
 const port = process.env.PORT || 3050;
 
@@ -21,6 +22,8 @@ const fetchRandomCatFact = async () => {
         throw error;
     }
 };
+
+app.use(cors());
 
 app.get('/me', async (req, res) => {
     try {
